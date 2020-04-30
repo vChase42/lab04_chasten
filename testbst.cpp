@@ -86,6 +86,7 @@ int main(){
         cout << "  pre-order: ";
         bst1.printPreOrder();
         cout << endl;
+
     }
 
     // test methods for empty bst2
