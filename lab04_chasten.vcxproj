@@ -148,7 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="intbst.cpp" />
-    <ClCompile Include="testbst.cpp" />
+    <ClCompile Include="test_intbst.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="intbst.h" />

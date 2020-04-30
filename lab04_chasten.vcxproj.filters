@@ -18,7 +18,7 @@
     <ClCompile Include="intbst.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testbst.cpp">
+    <ClCompile Include="test_intbst.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

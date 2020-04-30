@@ -1,6 +1,6 @@
 // intbst.cpp
 // Implements class IntBST
-// YOUR NAME(S), DATE
+// Chase Alcorn, 4/30/2020
 
 #include "intbst.h"
 
@@ -233,8 +233,10 @@ bool IntBST::remove(int value){
     
     if (tmp->right) {
         Node* right = getSuccessorNode(value);
-        right->left = tmp->left;
-        right->left->parent = right;
+        if (tmp->left) {
+            right->left = tmp->left;
+            right->left->parent = right;
+        }
         if (tmp == root) {
             root = tmp->right;
             tmp->right->parent = NULL;
