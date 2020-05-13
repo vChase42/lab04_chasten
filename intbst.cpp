@@ -2,7 +2,7 @@
 // Implements class IntBST
 // Chase Alcorn, 4/30/2020
 
-#include "intbst.h"
+//#include "intbst.h"
 
 #include <iostream>
 using namespace std;
