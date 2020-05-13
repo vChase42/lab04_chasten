@@ -7,10 +7,6 @@
 #include <iostream>
 using namespace std;
 
-template class IntBST<int>;
-template class IntBST<char>;
-template class IntBST<double>;
-template class IntBST<float>;
 
 
 
@@ -319,3 +315,46 @@ bool IntBST<T>::remove(T value){
     }
     return false;
 }
+
+void declaration() {
+    IntBST<int> i;
+    IntBST<char> what;
+    IntBST<double> hello;
+    IntBST<float> f;
+}
+
+
+//int main() {
+//    IntBST<double> p1;
+//
+//    p1.insert(7.5);
+//    p1.insert(22);
+//    p1.insert(83);
+//    p1.insert(42);
+//    p1.insert(-20);
+//    p1.insert(0);
+//    p1.insert(256);
+//    p1.insert(1);
+//    p1.insert(100);
+//    p1.insert(-10);
+//
+//    cout << "Print Ordered:" << endl;
+//    p1.printInOrder();
+//    cout << endl;
+//    cout << "Expected:" << endl;
+//    cout << "-20 -10 0 1 7 22 42 83 100 256" << endl;
+//    cout << endl;
+//
+//    cout << "Sum:" << endl;
+//    cout << p1.sum() << endl;
+//    cout << "Expected:" << endl;
+//    cout << "481" << endl;
+//    cout << endl;
+//
+//    cout << "Count:" << endl;
+//    cout << p1.count() << endl;
+//    cout << "Expected:" << endl;
+//    cout << "10" << endl;
+//    cout << endl;
+//    return 0;
+//}
