@@ -57,4 +57,6 @@ private:
     Node *getPredecessorNode(T value) const; // returns the Node containing the predecessor of the given value
 };
 
+#include "intbst.cpp"
+
 #endif

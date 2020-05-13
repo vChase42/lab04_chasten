@@ -316,12 +316,12 @@ bool IntBST<T>::remove(T value){
     return false;
 }
 
-void declaration() {
-    IntBST<int> i;
-    IntBST<char> what;
-    IntBST<double> hello;
-    IntBST<float> f;
-}
+//void declaration() {
+//    IntBST<int> i;
+//    IntBST<char> what;
+//    IntBST<double> hello;
+//    IntBST<float> f;
+//}
 
 
 //int main() {

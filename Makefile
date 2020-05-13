@@ -1,12 +1,9 @@
 all: IntBST
 
-IntBST: bst.o testbst.o
-	g++ bst.o testbst.o -o IntBST
-  
-bst.o: intbst.cpp intbst.h
-	g++ -c -Wall intbst.cpp
+IntBST: testbst.o
+	g++ testbst.o -o IntBST
 
-testbst.o: test_intbst.cpp
+testbst.o: test_intbst.cpp intbst.h
 	g++ -c -Wall test_intbst.cpp
 
 clean:
