@@ -22,7 +22,7 @@ IntBST<T>::~IntBST(){
 
 // recursive helper for destructor
 template <class T>
-void IntBST<T>::clear(Node<T> *n){
+void IntBST<T>::clear(Node *n){
     if (n){
         clear(n->left);
         clear(n->right);
@@ -35,7 +35,7 @@ template <class T>
 bool IntBST<T>::insert(T value){
     // handle special case of empty tree first
     if (!root){
-        root = new Node<T>(value);
+        root = new Node(value);
         return true;
     }
     // otherwise use recursive helper
@@ -44,7 +44,7 @@ bool IntBST<T>::insert(T value){
 
 // recursive helper for insert (assumes n is never 0)
 template <class T>
-bool IntBST<T>::insert(T value, Node<T> *n){
+bool IntBST<T>::insert(T value, Node *n){
     if (value == n->info)
         return false;
     if (value < n->info){
@@ -52,7 +52,7 @@ bool IntBST<T>::insert(T value, Node<T> *n){
             return insert(value, n->left);
         }
         else{
-            n->left = new Node<T>(value);
+            n->left = new Node(value);
             n->left->parent = n;
             return true;
         }
@@ -64,7 +64,7 @@ bool IntBST<T>::insert(T value, Node<T> *n){
     }
     else
     {
-        n->right = new Node<T>(value);
+        n->right = new Node(value);
         n->right->parent = n;
         return true;
     }
@@ -80,7 +80,7 @@ void IntBST<T>::printPreOrder() const
 
 // recursive helper for printPreOrder()
 template <class T>
-void IntBST<T>::printPreOrder(Node<T>* n) const
+void IntBST<T>::printPreOrder(Node* n) const
 {
     if (n) {
         cout << n->info << " ";
@@ -96,7 +96,7 @@ void IntBST<T>::printInOrder() const {
 }
 
 template <class T>
-void IntBST<T>::printInOrder(Node<T>* n) const {
+void IntBST<T>::printInOrder(Node* n) const {
     // IMPLEMENT HERE
     if (n) {
         printInOrder(n->left);
@@ -112,7 +112,7 @@ void IntBST<T>::printPostOrder() const {
 }
 
 template <class T>
-void IntBST<T>::printPostOrder(Node<T>* n) const {
+void IntBST<T>::printPostOrder(Node* n) const {
     // IMPLEMENT HERE
     if (n) {
         printPostOrder(n->left);
@@ -129,7 +129,7 @@ T IntBST<T>::sum() const {
 
 // recursive helper for sum
 template <class T>
-T IntBST<T>::sum(Node<T>* n) const {
+T IntBST<T>::sum(Node* n) const {
     if (n) {
         return sum(n->left) + sum(n->right) + n->info;
     }
@@ -146,7 +146,7 @@ int IntBST<T>::count() const {
 
 // recursive helper for count
 template <class T>
-int IntBST<T>::count(Node<T>* n) const {
+int IntBST<T>::count(Node* n) const {
     if (n) {
         return count(n->left) + count(n->right) + 1;
     }
@@ -160,7 +160,7 @@ int IntBST<T>::count(Node<T>* n) const {
 // Whenever you call this method from somewhere else, pass it
 // the root node as "n"
 template <class T>
-IntBST<T>::Node<T>* IntBST<T>::getNodeFor(typename T value, Node<T>* n) const {
+typename IntBST<T>::Node* IntBST<T>::getNodeFor(typename T value, Node* n) const {
     if (!n) {
         return NULL;
     }
@@ -189,8 +189,8 @@ bool IntBST<T>::contains(T value) const{
 
 // returns the Node containing the predecessor of the given value
 template <class T>
-IntBST<T>::Node<T> *IntBST<typename T>::getPredecessorNode(typename T value) const{
-    Node<T>* tmp = getNodeFor(value, root);
+typename IntBST<T>::Node *IntBST<typename T>::getPredecessorNode(typename T value) const{
+    Node* tmp = getNodeFor(value, root);
     if (tmp) {
         if (tmp->left) {
             tmp = tmp->left;
@@ -212,7 +212,7 @@ IntBST<T>::Node<T> *IntBST<typename T>::getPredecessorNode(typename T value) con
 // returns the predecessor value of the given value or 0 if there is none
 template <class T>
 T IntBST<T>::getPredecessor(T value) const{
-    Node<T>* tmp = getPredecessorNode(value);
+    Node* tmp = getPredecessorNode(value);
     if (tmp) {
         return tmp->info;
     }
@@ -221,8 +221,8 @@ T IntBST<T>::getPredecessor(T value) const{
 
 // returns the Node containing the successor of the given value
 template <class T>
-IntBST<T>::Node<T> *IntBST<typename T>::getSuccessorNode(typename T value) const{
-    Node<T>* tmp = getNodeFor(value, root);
+typename IntBST<T>::Node *IntBST<typename T>::getSuccessorNode(typename T value) const{
+    Node* tmp = getNodeFor(value, root);
     if (tmp) {
         if (tmp->right) {
             tmp = tmp->right;
@@ -244,7 +244,7 @@ IntBST<T>::Node<T> *IntBST<typename T>::getSuccessorNode(typename T value) const
 // returns the successor value of the given value or 0 if there is none
 template <class T>
 T IntBST<T>::getSuccessor(T value) const{
-    Node<T>* tmp = getSuccessorNode(value);
+    Node* tmp = getSuccessorNode(value);
     if (tmp) {
         return tmp->info;
     }
@@ -255,10 +255,10 @@ T IntBST<T>::getSuccessor(T value) const{
 // returns true if the node exist and was deleted or false if the node does not exist
 template <class T>
 bool IntBST<T>::remove(T value){
-    Node<T>* tmp = getNodeFor(value, root);
+    Node* tmp = getNodeFor(value, root);
     
     if (tmp->right) {
-        Node<T>* right = getSuccessorNode(value);
+        Node* right = getSuccessorNode(value);
         if (tmp->left) {
             right->left = tmp->left;
             right->left->parent = right;
@@ -280,7 +280,7 @@ bool IntBST<T>::remove(T value){
         return true;
     }
     else if(tmp->left){
-        Node<T>* left = tmp->left;
+        Node* left = tmp->left;
         if (tmp == root) {
             root = tmp->left;
             tmp->left->parent = NULL;

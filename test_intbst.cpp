@@ -10,7 +10,7 @@ void testRemove(IntBST<int>&, int);
 
 int main() {
 
-	IntBST<double> p1;
+	IntBST<float> p1;
 
 	p1.insert(7.5);
 	p1.insert(22);
