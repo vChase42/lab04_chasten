@@ -7,7 +7,12 @@
 #include <iostream>
 using namespace std;
 
-//template class IntBST<int>;
+template class IntBST<int>;
+template class IntBST<char>;
+template class IntBST<double>;
+template class IntBST<float>;
+
+
 
 
 // constructor sets up empty tree
